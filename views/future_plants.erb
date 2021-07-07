@@ -1,0 +1,22 @@
+<% content_for :header_links do %>
+<h2>Future Plants</h2>
+<br>
+  <a class="add" id="add-new-plant" href="/plants/new">Add New Plant</a>
+  <a id="all-plants" href="/plants">Current Garden</a>
+<% end %>
+
+<h4 id="empty-garden">Want to plant something in the future?</h4>
+<h4 id="empty-garden">Add some plants here so you can keep track of them until you're ready to start your garden!</h4>
+
+<ul id="plants-list" class="thin-brown-border">
+  <br>
+  <% @plants.each_with_index do |plant_hash, index| %>
+      <a href="/plants/<%= index %>">
+        <% if plant_hash[:choice] == "future" %>
+          <ol class="a">
+            <li><h3 id="plant-name"><%= plant_hash[:name] %></h3></li>
+          </ol>
+        <% end %>
+      </a>
+  <% end %>
+</ul>

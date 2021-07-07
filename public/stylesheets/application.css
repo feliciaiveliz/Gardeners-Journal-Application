@@ -1,5 +1,5 @@
-#t1 th {
-  color: #963305;
+#t2 {
+  color: #2f8f72;
 }
 
 table, th, td {
@@ -13,8 +13,16 @@ h1, h2 {
   text-align: center;
 }
 
+#single-plant {
+  color: #f2a60c;
+}
+
+.yellow {
+  color: #f2a60c;
+}
+
 body {
-  background-color: #fffcf7;
+  background-color: #ffffff;
 }
 
 a:hover, a:active {
@@ -22,7 +30,7 @@ a:hover, a:active {
 }
 
 a:link, a:visited {
-  background-color: #fffcf7;
+  background-color: #ffffff;
   color: #2f8f72;
   display: block;
   text-decoration: none;
@@ -41,17 +49,18 @@ header {
 }
 
 #new-plant {
-  background-color: #fffcf7;
+  background-color: #ffffff;
   width: 50%;
-  padding: 50px;
+  padding: 10px;
   display: block;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  color: #963305;
 }
 
 #edit-plant {
-  background-color: #fffcf7;
+  background-color: #ffffff;
   width: 20%;
   padding: 20px;
   display: block;
@@ -61,12 +70,12 @@ header {
   text-align: center;
 }
 
-.thin-brown-border {
+/* .thin-brown-border {
   border-color: #963305;
   border-width: 1px;
   border-style: solid;
   border-radius: 5px;
-}
+} */
 
 #plants-list {
   width: 50%;
@@ -81,29 +90,132 @@ header {
 #all-plants {
   color: #0b734b;
   font-weight: bold;
+  padding-right: 10px;
+  display: inline;
+}
+
+#all-plants:hover {
+  color: #f2a60c;
 }
 
 #edit {
+  color: #0b734b;
+  font-weight: bold;
+  padding-left: 380px;
+  display: inline;
+}
+
+#edit:hover {
   color: #f2a60c;
 }
 
-#add-new {
+#add-new-plant {
   color: #0b734b;
   font-weight: bold;
+  padding-right: 10px;
+  display: inline;
+  background: url("../Desktop/add-icon.png");
 }
 
-#future-garden {
+#add-new-plant:hover {
+  color: #f2a60c;
+}
+
+#view-future-plants {
   color: #0b734b;
   font-weight: bold;
+  padding-left: 380px;
+  display: inline;
 }
+
+#view-future-plants:hover {
+  color: #f2a60c;
+}
+
+#empty-garden {
+  text-align: center;
+  color: #f2a60c;
+  font-style: italic;
+}
+
 #plant-name {
   color: #f2a60c;
   list-style-type: circle;
+}
+
+.info {
+  color: #963305;
+  font-weight: bold;
 }
 
 ol.a {
   color: #f2a60c;
   list-style-type: square;
   margin: 0;
-  padding: 0;
+  padding: 5px;
+}
+
+.form.delete {
+  color: white;
+  background-color: #0b734b;
+  text-decoration: none;
+  border: none;
+  margin: 10px;
+  padding: 8px;
+}
+
+form input[type="text"] {
+  border: none;
+  border-bottom: 2px solid #963305;
+  margin: 3px;
+  background-color: #fffcf7;
+}
+
+form input[type="date"] {
+  border: none;
+  border-bottom: 2px solid #963305;
+  margin: 3px;
+  background-color: #fffcf7;
+  color: #7a7878;
+}
+
+form input[type="submit"] {
+  color: white;
+  background-color: #0b734b;
+  text-decoration: none;
+  border: none;
+  margin: 10px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+  background-color: #f2a60c;
+}
+
+#notes {
+  width: 200px;
+}
+
+#cancel {
+  font-weight: bold;
+  border: none;
+  display: inline-block;
+  padding: 8px;
+}
+
+#cancel:hover {
+  color: red;
+}
+
+.flash.success {
+  color: #33cc99;
+  background: #CBF2E5;
+  text-align: center;
+}
+
+.flash.error {
+  color: #ff6633;
+  background: #FFCFBF;
+  text-align: center;
 }

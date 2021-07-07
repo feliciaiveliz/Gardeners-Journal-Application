@@ -1,47 +1,57 @@
-<section id="plants">
-  <header>
-    <h2>Editing '<%= @plant_list[:name] %>'</h2>
-    <form class="delete" action="/plants/<%= params[:id] %>/delete" method="post">
-      <button type="submit" class="delete">Delete Plant</button>
-    </form>
-  </header>
-</section>
+<header>
+  <h2>Editing '<%= @plant_list[:name] %>'</h2>
+  <form action="/plants/<%= params[:id] %>/delete" method="post">
+    <button type="submit" class="delete">Delete Plant</button>
+  </form>
+</header>
 
-<form action="/plants/<%= params[:id] %>" method="post" id="edit-plant" class="thin-brown-border">
+<form action="/plants/<%= params[:id] %>" method="post" id="edit-plant">
   <body>
-    <label for="plant_name">Name of Plant:</label>
+    <label for="date_planted" class="info">Date Planted:</label>
     <br>
-    <input name="plant_name" placeholder="Plant Name" type="text" value="<%= params[:plant_name] || @plant_list[:name] %>">
-    <br>
-    <br>
-    <label for="date_planted">Date Planted:</label>
-    <br>
-    <input name="date_planted" type="date" value="<%= params[:date_planted] || @plant_list[:date_planted] %>">
+    <input name="date_planted" type="date" value="<%= @plant_list[:date_planted] %>">
     <br>
     <br>
-    <label for="sunlight">Amount of Sunlight:</label>
+    <label for="plant_name" class="info">Name of Plant:</label>
     <br>
-    <input name="sunlight" placeholder="# of Hours" type="text" value="<%= params[:sunlight] || @plant_list[:sunlight] %>">
-    <br>
-    <br>
-    <label for="height">Height in Inches:</label>
-    <br>
-    <input name="height" placeholder="# in Inches" type="text" value="<%= params[:height] || @plant_list[:height] %>">
+    <input name="plant_name" placeholder="Plant Name" type="text" value="<%= @plant_list[:name] %>">
     <br>
     <br>
-    <label for="harvest">Days to Harvest:</label>
+    <label for="plant_type" class="info">Type of Plant:</label>
     <br>
-    <input name="harvest" placeholder="# of Days Until Harvest" type="text" value="<%= params[:harvest] || @plant_list[:harvest] %>">
+    <input name="plant_type" placeholder="Herb, Flower, Fruit, etc." type="text" value="<%= @plant_list[:plant_type] %>">
     <br>
     <br>
-    <label for="notes">Notes:</label>
+    <label for="height" class="info">Height:</label>
     <br>
-    <input name="notes" placeholder="Notes about this plant" type="text" value="<%= params[:notes] || @plant_list[:notes] %>">
+    <input name="height" placeholder="# in Inches" type="text" value="<%= @plant_list[:height] %>">
     <br>
+    <br>
+    <label for="sunlight" class="info">Amount of Sunlight:</label>
+    <br>
+    <input name="sunlight" placeholder="# of Hours" type="text" value="<%= @plant_list[:sunlight] %>">
+    <br>
+    <br>
+    <label for="harvest" class="info">Days to Harvest:</label>
+    <br>
+    <input name="harvest" placeholder="# of Days" type="text" value="<%= @plant_list[:harvest] %>">
+    <br>
+    <br>
+    <label for="notes" class="info">Notes:</label>
+    <br>
+    <input name="notes" placeholder="Notes" type="text" value="<%= @plant_list[:notes] %>">
+    <br>
+    <br>
+    <h4>Do you want to start growing this plant now?</h4>
+    <input type="radio" class="radio" name="choice" value="current">
+    <label for="current">Yes</label>
+    <br>
+    <input type="radio" class="radio" name="choice" value="future">
+    <label for="future">Not Yet</label>
     <br>
     <form action="/plants" method="post">
       <input type="submit" value="Save Changes">
-      <a href="/plants/<%= params[:id] %>">Cancel</a>
+      <a id="cancel" href="/plants/<%= params[:id] %>">Cancel</a>
     </form>
   </body>
   <br>

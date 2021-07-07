@@ -1,30 +1,31 @@
 <header>
   <% content_for :header_links do %>
+  <br>
+  <br>
     <a id="all-plants" href="/plants">All Plants</a>
-  <% end %>
-
-  <% content_for :header_links do %>
     <label><a id="edit" href="/plants/<%= params[:id] %>/edit">Edit Plant</a></label>
   <% end %>
 
-  <h2><%= @plant_list[:name] %></h2>
+  <h2 id="single-plant"><%= @plant_list[:name] %></h2>
 </header>
 
 <body>
   <div id="plant-display">
-    <table id="t1">
+    <table id="t2">
       <tr>
         <th>Date Planted</th>
+        <th>Type of Plant</th>
         <th>Amount of Sunlight</th>
-        <th>Height in Inches</th>
+        <th>Height</th>
         <th>Days to Harvest</th>
         <th>Notes</th>
       </tr>
       <tr>
         <td><%= @plant_list[:date_planted] %></td>
-        <td><%= @plant_list[:sunlight] %></td>
-        <td><%= @plant_list[:height] %></td>
-        <td><%= @plant_list[:harvest] %></td>
+        <td><%= @plant_list[:plant_type] %></td>
+        <td><%= @plant_list[:sunlight] %> hours</td>
+        <td><%= @plant_list[:height] %>"</td>
+        <td><%= @plant_list[:harvest] %> days</td>
         <td><%= @plant_list[:notes] %></td>
       </tr>
     </table>

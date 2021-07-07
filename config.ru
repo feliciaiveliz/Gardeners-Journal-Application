@@ -1,2 +1,2 @@
-require './plant_tracker'
+require './journal'
 run Sinatra::Application

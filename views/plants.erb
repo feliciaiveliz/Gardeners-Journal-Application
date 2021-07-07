@@ -1,32 +1,41 @@
-<h2>Currently In Your Garden:</h2>
-
 <% content_for :header_links do %>
-  <a id="add-new" href="/plants/new">Add New Plant</a>
-  <a id="future-garden" href="/plants/future-garden">View Future Plants</a>
+<br>
+<br>
+  <a class="add" id="add-new-plant" href="/plants/new">Add New Plant</a>
+  <a id="view-future-plants" href="/plants/future-plants">View Future Plants</a>
 <% end %>
 
 <ul id="plants-list" class="thin-brown-border">
-  <% @plants.each_with_index do |plant_hash, index| %>
-      <a href="/plants/<%= index %>">
-        <ol class="a">
-          <li><h3 id="plant-name"><%= plant_hash[:name] %></h3></li>
-        </ol>
-        <table id="t2">
-          <tr>
-            <th>Date Planted</th>
-            <th>Amount of Sunlight</th>
-            <th>Height in Inches</th>
-            <th>Days to Harvest</th>
-            <th>Notes</th>
-          </tr>
-          <tr>
-            <td><%= plant_hash[:date_planted] %></td>
-            <td><%= plant_hash[:sunlight] %></td>
-            <td><%= plant_hash[:height] %></td>
-            <td><%= plant_hash[:harvest] %></td>
-            <td><%= plant_hash[:notes] %></td>
-          </tr>
-        </table>
-      </a>
+  <h2>Currently In Your Garden:</h2>
+  <% if @plants.empty? %>
+    <h4 id="empty-garden">Your garden is empty. Let's start planting!</h4>
+  <% else %>
+    <% @plants.each_with_index do |plant_hash, index| %>
+      <% if plant_hash[:choice] == "current" %>
+        <a href="/plants/<%= index %>">
+          <ol class="a">
+            <li><h3 id="plant-name"><%= plant_hash[:name] %></h3></li>
+          </ol>
+          <table id="t2">
+            <tr>
+              <th>Date Planted</th>
+              <th>Type of Plant</th>
+              <th>Amount of Sunlight</th>
+              <th>Height</th>
+              <th>Days to Harvest</th>
+              <th>Notes</th>
+            </tr>
+            <tr>
+              <td><%= plant_hash[:date_planted] %></td>
+              <td><%= plant_hash[:plant_type] %></td>
+              <td><%= plant_hash[:sunlight] %> hours</td>
+              <td><%= plant_hash[:height] %>"</td>
+              <td><%= plant_hash[:harvest] %> days</td>
+              <td><%= plant_hash[:notes] %></td>
+            </tr>
+          </table>
+        </a>
+      <% end %>
+    <% end %>
   <% end %>
 </ul>
